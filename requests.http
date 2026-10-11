@@ -1,0 +1,48 @@
+### 1) Créer une agence
+POST http://localhost:8080/api/agences
+Content-Type: application/json
+
+{
+  "nom": "AutoLoc Tunis Centre",
+  "ville": "Tunis",
+  "adresse": "12 Avenue Habib Bourguiba",
+  "telephone": "71123456"
+}
+
+### 2) Lister les agences
+GET http://localhost:8080/api/agences
+
+### 3) Créer un véhicule (l'agence 1 doit exister)
+POST http://localhost:8080/api/vehicules
+Content-Type: application/json
+
+{
+  "immatriculation": "123 TUN 4567",
+  "marque": "Peugeot",
+  "modele": "208",
+  "categorie": "CITADINE",
+  "tarifJournalier": 85.50,
+  "agenceId": 1,
+  "equipementIds": []
+}
+
+### 4) Lister les véhicules
+GET http://localhost:8080/api/vehicules
+
+### 5) Modifier le véhicule 1
+PUT http://localhost:8080/api/vehicules/1
+Content-Type: application/json
+
+{
+  "immatriculation": "123 TUN 4567",
+  "marque": "Peugeot",
+  "modele": "208 GT",
+  "categorie": "CITADINE",
+  "tarifJournalier": 95.00,
+  "statut": "MAINTENANCE",
+  "agenceId": 1,
+  "equipementIds": []
+}
+
+### 6) Supprimer le véhicule 1
+DELETE http://localhost:8080/api/vehicules/1
